@@ -39,21 +39,16 @@ public class TwoSum {
      * 通过测试用例：57 / 57
      */
     public int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> dep = new HashMap<>();
-        int[] index = new int[2];
-
+        Map<Integer, Integer> dep = new HashMap<>();
         for (int i = 0 ; i < nums.length; i ++) {
             Integer o = dep.get(target - nums[i]);
             if (o != null) {
-                index[0] = o;
-                index[1] = i;
-                break;
+                return new int[]{o, i};
             } else {
                 dep.put(nums[i], i);
             }
         }
-
-        return index;
+        return null;
     }
 
 }
